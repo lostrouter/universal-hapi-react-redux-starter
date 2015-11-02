@@ -3,6 +3,9 @@ import Boom from 'boom';
 import Inert from 'inert';
 import Good from 'good';
 import GoodConsole from 'good-console';
+import App from '../app';
+import React from 'react';
+import ReactDOM from 'react-dom/server'
 
 const Server = new Hapi.Server();
 
@@ -28,7 +31,7 @@ Server.register(
 			method: 'GET',
 			path: '/',
 			handler: (req, reply) => {
-				reply('hit');
+				reply(ReactDOM.renderToString(<App />));
 			}
 		});
 		Server.start(() => {
