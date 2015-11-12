@@ -2,7 +2,7 @@ module.exports = function(webpack, path, projectFolder) {
 	return {
 		name: 'client application',
 		context: projectFolder,
-		entry: path.join(projectFolder, 'src', 'app'),
+		entry: path.join(projectFolder, 'src', 'browser'),
 		target: 'web',
 		output: {
 			path: path.join(projectFolder, 'dist', 'public'),

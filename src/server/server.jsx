@@ -21,7 +21,7 @@ const Server = new Hapi.Server(),
 		'<div id="mainContainer">',
 	pageFoot =
 		'</div>' +
-		'<script src="/public/app.min.js" type="text/javascript" />'
+		'<script src="/public/app.min.js"></script>' +
 		'</body>'
 		'</html>';
 

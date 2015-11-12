@@ -3,8 +3,9 @@ module.exports = function(webpack, path, projectFolder) {
 		name: 'client application',
 		context: projectFolder,
 		debug: true,
-		devtool: 'inline-source-map',
-		entry: path.join(projectFolder, 'src', 'app'),
+		devtool: 'source-map',
+		// watch: true,
+		entry: path.join(projectFolder, 'src', 'browser'),
 		target: 'web',
 		output: {
 			path: path.join(projectFolder, 'dist', 'public'),
