@@ -1,0 +1,7 @@
+node_modules/
+public/*.js
+public/*.css
+public/*.map
+logs/
+.vscode/
+npm-debug.log

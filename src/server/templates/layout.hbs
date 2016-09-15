@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8' />
+    {{#each meta}} <meta {{{spread this}}} /> {{/each}}
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/public/app.css' />
+    {{#each links}} <link {{{spread this}}} /> {{/each}}
+    {{#each preLoadScripts}} <script src='{{this}}'></script> {{/each}}
+
+</head>
+<body>
+    <div id='root'>{{{content}}}</div>
+    <script>window.__INITIAL_STATE__ = {{{initState}}};</script>
+    <script src='/public/app.js'></script>
+    {{#each postLoadScripts}} <script src='{{this}}'></script> {{/each}}
+</body>
+</html>
