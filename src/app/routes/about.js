@@ -1,4 +1,6 @@
-require('require-ensure-shim').shim(require);
+if (typeof require.ensure !== 'function') {
+    require('require-ensure-shim').shim(require);
+}
 
 const AboutRoute = {
     path: 'about',

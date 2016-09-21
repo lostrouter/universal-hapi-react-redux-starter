@@ -1,7 +1,8 @@
 node_modules/
-public/*.js
-public/*.css
-public/*.map
+dist/
 logs/
 .vscode/
-npm-debug.log
+*.log
+*.pfx
+*.crt
+*.key

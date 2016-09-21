@@ -7,6 +7,10 @@ import { configureStore } from '../../app/redux/store';
 import { createMemoryHistory, match, RouterContext } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
+if (global.__WEBPACK__IS_SERVER === true) {
+    require('file?name=templates/[name].[ext]!../templates/layout.hbs');
+}
+
 const reactRoute = {
     method: 'GET',
     path: '/{p*}',
@@ -28,8 +32,7 @@ const reactRoute = {
                     result = reply(Boom.badImplementation(null, err));
                 } else if (redirectLocation) {
                     result = reply
-                        .redirect(redirectLocation.pathname + redirectLocation.search)
-                        .code(redirectLocation.state.httpCode);
+                        .redirect(redirectLocation.pathname + redirectLocation.search);
                 } else if (renderProps) {
                     const content = ReactDOM.renderToString(
                         <Provider store={store}>

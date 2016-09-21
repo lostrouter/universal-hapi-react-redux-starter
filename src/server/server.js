@@ -30,11 +30,12 @@ export default {
             if (err) {
                 callback(err);
             } else {
-                server.views({
-                    engines: { hbs: Handlebars },
-                    path: __dirname + '/templates',
-                    helpersPath: __dirname + '/templates/helpers'
+                const manager = server.views({
+                    engines: { hbs: Handlebars.create() },
+                    path: './templates'
                 });
+
+                manager.registerHelper('spread', require('./templates/helpers/spread'));
 
                 // Load the server-side routing table
                 server.route(routes);

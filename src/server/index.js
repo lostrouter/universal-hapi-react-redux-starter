@@ -1,13 +1,8 @@
 import cluster from 'cluster';
 import { cpus } from 'os';
 import Server from './server';
-import minimist from 'minimist';
 
-const passedInParams = minimist(process.argv.slice(2));
-
-process.env.NODE_ENV = passedInParams.environment || 'production';
-
-const cpuCoreCount = process.env.NODE_ENV !== 'production' ? 1 : cpus().length;
+const cpuCoreCount = process.env.NODE_ENV !== 'production' ? 1 : cpus().length - 1;
 
 global.__IS_SERVER__ = true;
 
@@ -21,7 +16,7 @@ if (cluster.isMaster) {
     });
 
     cluster.on('exit', function( worker, code, signal) {
-        console.log('Worker ' + worker.process.pid + 'died with code: (' + code + '), and signal: ' + signal); // eslint-disable-line no-console
+        console.log('Worker ' + worker.process.pid + 'died with code: (' + code + '), and signal: ' + signal); // eslint-disable-line no-console max-len
         console.log('Starting new worker'); // eslint-disable-line no-console
         cluster.fork();
     });

@@ -1,19 +1,18 @@
-require('require-ensure-shim').shim(require);
+import App from '../containers/app';
+if (typeof require.ensure !== 'function') {
+    require('require-ensure-shim').shim(require);
+}
 
 export default (store) => {
     const rootRoute = {
         childRoutes: [
             {
                 path: '/',
-                getComponent(nextState, callback) {
-                    require.ensure([], (require) => {
-                        callback(null, require('../containers/app'));
-                    });
-                },
+                component: App,
                 indexRoute: {
-                    getComponents(nextState, callback) {
+                    getComponent(nextState, callback) {
                         require.ensure([], (require) => {
-                            callback(null, require('../containers/home'));
+                            callback(null, require('../containers/home')); // eslint-disable-line
                         });
                     }
                 },

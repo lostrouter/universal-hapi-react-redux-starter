@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "clean": "rimraf ./public",
+    "clean": "rimraf ./dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run clean && node ./build-app.js --environment development",
-    "start": "node bin/www/index.js --environment development",
+    "start": "cd dist && node server.js",
     "watch": "nodemon -x \"npm run build && npm run start\""
   },
   "repository": {
@@ -29,6 +29,8 @@
     "eslint-loader": "^1.5.0",
     "eslint-plugin-react": "^6.2.2",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "handlebars-loader": "^1.4.0",
     "json-loader": "^0.5.4",
     "node-sass": "^3.10.0",
     "nodemon": "^1.9.2",
@@ -38,6 +40,7 @@
   },
   "dependencies": {
     "babel-eslint": "^6.1.2",
+    "babel-plugin-transform-runtime": "^6.15.0",
     "blipp": "^2.3.0",
     "boom": "^3.1.2",
     "classnames": "^2.2.5",

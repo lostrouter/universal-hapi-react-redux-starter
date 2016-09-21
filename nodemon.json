@@ -1,4 +1,4 @@
 {
-    "ignore": ["public/*"],
+    "ignore": ["public/*","dist/*"],
     "ext": "js,jsx,scss,json"
 }

@@ -1,6 +1,6 @@
 export default function spread() {
-    var props = [];
-    for (var prop in this) {
+    const props = [];
+    for (const prop in this) {
         props.push(`${prop}='${this[prop]}'`);
     }
 
