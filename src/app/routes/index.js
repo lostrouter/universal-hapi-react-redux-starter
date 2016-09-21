@@ -20,6 +20,7 @@ export default (store) => {
                     require.ensure([], (require) => {
                         callback(null, [
                             require('./about'),
+                            require('./stargazers'),
                             require('./not-found')
                         ]);
                     });
