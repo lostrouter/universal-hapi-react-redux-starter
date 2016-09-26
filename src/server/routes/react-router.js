@@ -41,7 +41,8 @@ const reactRoute = {
                     );
 
                     result = reply.view('layout', {
-                        content
+                        content,
+                        initState: JSON.stringify({})
                     });
                 } else {
                     result = reply(Boom.notFound());

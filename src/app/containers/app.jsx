@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
 
 if (global.__WEBPACK__IS_CLIENT) {
     require('./app.scss');
@@ -7,6 +8,8 @@ if (global.__WEBPACK__IS_CLIENT) {
 
 const App = React.createClass({
     render() {
+        const children = React.cloneElement(this.props.children, this.props);
+
         return (
             <div>
                 <header>
@@ -16,7 +19,7 @@ const App = React.createClass({
                         <li className="top-nav-item"><Link to="/about">About</Link></li>
                     </ul>
                 </header>
-                {this.props.children}
+                {children}
                 <footer>
                     made by me
                 </footer>
@@ -25,4 +28,6 @@ const App = React.createClass({
     }
 });
 
-export default App;
+const mapStateToProps = (state) => state;
+
+export default connect(mapStateToProps)(App);
